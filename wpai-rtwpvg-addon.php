@@ -60,7 +60,7 @@ class WAPI_rtwpvg_addon {
         $this->add_on->run(array(
             'plugins' => array( 
                 'woo-product-variation-gallery/woo-product-variation-gallery.php',
-                'wp-all-export/wp-all-export.php'
+                // 'wp-all-export/wp-all-export.php'
             )
         ));
     }
