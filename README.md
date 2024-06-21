@@ -2,4 +2,4 @@
 
 This plugin allow to import the variation images with WP ALL IMPORT. 
 
-Custom field "Product Gallery Images" under "Variation Images Gallery for Woocommerce" to import the images. 
+Tested with `Update Existing Items` process only. Not cover for `Create New Item` yet. 
