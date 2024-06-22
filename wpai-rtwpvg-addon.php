@@ -13,7 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 include 'rapid-addon.php';
 
-class WAPI_rtwpvg_addon {
+ 
+class WAPI_RTWPVG_ADDON {
     protected static $instance;
 
     protected $add_on;
@@ -26,7 +27,7 @@ class WAPI_rtwpvg_addon {
     }
 
     protected function __construct() {        
-        $this->add_on = new RapidAddon( 'Variation Images Gallery Settings', 'wapi_rtwpvg_addon_woo' );
+        $this->add_on = new RapidAddon( 'Variation Images Gallery Settings', 'wpai_rtwpvg_addon_woo' );
         $this->add_on->add_field('rtwpvg_images_new', 'Replace existing images', 'radio', array(
             'yes' => 'Yes',
             'no' => 'No'
@@ -91,4 +92,4 @@ function wpai_rtwpvg_activate() {
 // Register the activation hook
 register_activation_hook( __FILE__, 'wpai_rtwpvg_activate' );
 
-wapi_rtwpvg_addon::get_instance();
+WAPI_RTWPVG_ADDON::get_instance();
