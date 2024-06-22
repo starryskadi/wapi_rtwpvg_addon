@@ -6,6 +6,11 @@ Version: 1.0
 Author: Starry Skadi
 */
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 include 'rapid-addon.php';
 
 class WAPI_rtwpvg_addon {
@@ -28,7 +33,9 @@ class WAPI_rtwpvg_addon {
         ));
 
         $this->add_on->import_images( 'rtwpvg_images', 'Variation Images Gallery Images', 'images', [ $this, 'import_image' ]);
+
         $this->add_on->set_import_function([ $this, 'import' ]);
+        
 
         add_action( 'init', [ $this, 'init' ] );
     }
@@ -65,5 +72,23 @@ class WAPI_rtwpvg_addon {
         ));
     }
 }
+
+function wpai_rtwpvg_activate() {
+    if ( is_plugin_active( 'wp-all-import/wp-all-import.php' ) || is_plugin_active( 'wp-all-import-pro/wp-all-import-pro.php' )) {
+        // The other plugin is not active, throw an error
+        
+    } else {
+        wp_die(
+            'This plugin requires the WP ALL IMPORT (or) WP ALL IMPORT PRO to be installed and activated. Please install and activate it first.',
+            'Plugin Dependency Check',
+            array(
+                'back_link' => true, // This will provide a back link to the plugins page
+            )
+        );
+    }
+}
+
+// Register the activation hook
+register_activation_hook( __FILE__, 'wpai_rtwpvg_activate' );
 
 wapi_rtwpvg_addon::get_instance();
