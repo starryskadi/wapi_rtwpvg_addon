@@ -1,6 +1,6 @@
 <?php 
 /*
-Plugin Name: WP All Import - ACF Variation Images Gallery for WooCommerce Add-On 
+Plugin Name: WP All Import - Variation Images Gallery for WooCommerce Add-On 
 Description: Import the variation images with WP ALL IMPORT 
 Version: 1.0
 Author: Starry Skadi
